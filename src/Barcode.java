@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Barcode {
 
     public static void main(String[] args) {
-        System.out.println(binaryConverter(12));
+        System.out.println(initialBarcodeConverter556s("010011"));
         /*
         System.out.println("Welcome to Nirayka's Postal- to Bar-Code Converter!");
         boolean entering = true;
@@ -17,9 +17,38 @@ public class Barcode {
             } */
         }
 
-        public static int binaryConverter(int decimal) {
-            return(Integer.parseInt(Integer.toBinaryString(decimal)));
+        public static String binaryConverter(int decimal) {
+            return(Integer.toBinaryString(decimal));
         }
+
+        public static String initialBarcodeConverter(String binary) {
+            String initialBarcode = "";
+            for (int i = 0; i < 5; i++) {
+                String bar = "";
+                char thisDigitChar = binary.charAt(i);
+                String thisDigit = String.valueOf(thisDigitChar);
+
+                if (thisDigit.equals("0")) {
+                    bar = ":";
+                } else if (thisDigit.equals("1")) {
+                    bar = "|";
+                }
+                initialBarcode += bar;
+            }
+            return initialBarcode;
+        }
+    public static String initialBarcodeConverter2(String binary) {
+        String initialBarcode = "";
+            String bar = "";
+            char thisDigitChar = binary.charAt(1);
+            String thisDigit = String.valueOf(thisDigitChar);
+        if (thisDigit.equals("0")) {
+            bar = ":";
+        } else if (thisDigit.equals("1")) {
+            bar = "|";
+        }
+        return bar;
+    }
 
 
     }
